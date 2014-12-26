@@ -1,0 +1,12 @@
+{house, {owner, {trump, donald}},
+        {rooms, 2},
+        {area, 600},
+        {price, 200000},
+        {inhabited, no},
+        {furnished, no},
+        {units, {sqft, usd}}}
+
+{street, {name, '5th street'},
+         {zip, 78726},
+         {country, 'USA'},
+         {houses, {House1, House2, ...}}}
