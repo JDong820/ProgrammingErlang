@@ -1,0 +1,5 @@
+$ erl
+$ erl -man <module name>
+
+erl sucks, and ierlang sucks even more.
+elixer is hip, but the command shell seems to suck too. ielixer when.
