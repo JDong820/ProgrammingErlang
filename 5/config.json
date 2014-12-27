@@ -1,0 +1,12 @@
+{
+    'username': "JDong820",
+    'name':
+    {
+        'first': "Joshua",
+        'middle': null,
+        'last': "Dong"
+    },
+    'email': "jdong42@gmail.com",
+    'password': "secret123",
+    'autologin': true
+}
