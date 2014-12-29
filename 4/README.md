@@ -38,12 +38,10 @@ Questions:
 ----------
 
 * Why can't I run `my_time_func(erlang:now)`?
+You can. The correct syntax `my_time_func(fun erlang:now/0)`
 * Erlang testing framework? What's the meta?
 
 TODO:
 -----
 
-* Resolve questions.
 * Implement python `datetime`, exercise 4.
-
-

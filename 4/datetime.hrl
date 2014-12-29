@@ -1,0 +1,4 @@
+-record(date, {year, month, day}).
+-record(time, {hour=0, minute=0, second=0}).
+-record(datetime, {date, time}).
+-record(timezone, {offset=0, name=none}).
