@@ -1,0 +1,4 @@
+Designing should always come before writing.
+Knowing the limits of the program helps you define the problem,
+and types help you put constraints on what you need to account for.
+It can't hurt, since you can always change your designs as you go.
