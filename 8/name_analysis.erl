@@ -2,11 +2,21 @@
 -export([whats_popular/0, whats_unique/0, whats_noisy/0]).
 -import(dict_count, [fun_count/1]).
 
-count([{Module, Function}|T], Results) ->
+max_freq([{Function, Count}|T], {MaxF, MaxC}) ->
+    if
+        Count > MaxC -> max_freq(T, {Function, Count});
+        true -> max_freq(T, {MaxF, MaxC})
+    end;
+max_freq([], {MaxF, _MaxC}) ->
+    MaxF.
+
+count([{_Module, Function}|T], Results) -> % Count Function frequency.
     Oldcount = maps:find(Function, Results),
     if
-        is_integer(Oldcount) -> count(T, Results#{H -> 1});
-        true -> count(T, Results#{H -> Oldcount + 1})
+        is_integer(Oldcount) ->
+            count(T, orddict:update_counter(Function, 1, Results));
+        true ->
+            count(T, orddict:append(Function, 1, Results))
     end;
 count([], Results) ->
     Results.
@@ -24,8 +34,11 @@ whats_noisy() ->
 whats_popular() ->
     Modules = lists:map(fun(X) -> element(1, X) end, code:all_loaded()),
     Funs = enumerate_funs(Modules, []),
-    Freqs = count(Funs, #{}).
+    Freqs = orddict:to_list(count(Funs, orddict:new())),
+    max_freq(Freqs, {null, 0}).
 
 whats_unique() ->
-    ok.
-
+    Modules = lists:map(fun(X) -> element(1, X) end, code:all_loaded()),
+    Funs = enumerate_funs(Modules, []),
+    Freqs = orddict:to_list(count(Funs, orddict:new())),
+    lists:filter(fun({Fun, 1}) -> Fun end, Freqs).
