@@ -1,0 +1,26 @@
+#!/usr/bin/escript
+
+%
+% Usage: ./ringbenchmark <ring size> <rounds>
+% Example: ./ringbenchmark 200000 10
+%
+
+main([N|[M]]) ->
+    Size = list_to_integer(N),
+    Rounds = list_to_integer(M),
+    Ringmaster = ring:init_ringmaster(self(), Size),
+
+    statistics(runtime), 
+    statistics(wall_clock),
+
+    ring:send_ring(Ringmaster, {hey_guys}, Size*Rounds),
+    receive
+        _ -> ok
+    end,
+
+    {_, Runtime} = statistics(runtime),
+    {_, Realtime} = statistics(wall_clock),
+    ring:kill_ring(Ringmaster),
+
+    Stats = [Runtime/1000.0/Rounds, Realtime/1000.0/Rounds, Size],
+    io:format("Runtime:~ps Realtime:~ps, per round (~p nodes).~n", Stats).

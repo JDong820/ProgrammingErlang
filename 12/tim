@@ -1,0 +1,20 @@
+#!/usr/bin/escript
+
+wait() ->
+    receive
+        die -> void
+    end.
+
+time_creation(N) ->
+    statistics(runtime), 
+    statistics(wall_clock),
+    Pids = [spawn(fun() -> wait() end) || _ <- lists:seq(1, N)],
+    {_, Runtime} = statistics(runtime),
+    {_, Realtime} = statistics(wall_clock),
+    lists:foreach(fun(Pid) -> Pid ! die end, Pids),
+    Stats = [Runtime * 1000 / N, Realtime * 1000 / N],
+    io:format("~p ~p~n", Stats).
+
+main([N]) ->
+    Count = list_to_integer(N),
+    time_creation(Count).
