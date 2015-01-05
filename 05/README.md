@@ -1,8 +1,8 @@
-Chapter 5
-=========
+Records and Maps
+================
 
 * records are just tuples
-* maps ard python dicts
+* maps are python dicts except you can't freely assign keys
 * `-record(Name, {key = Default, ...})`, `rr("<file.hrl>").`
 * `record` is not a shell command
 * `V2 = V1#record{key=NewVal}.`
@@ -10,7 +10,7 @@ Chapter 5
 * `:=` vs `=>`
 * maps are ordered
 * `#{map}` syntax
-* keys must be grounded
+* keys must be `grounded`
 * map BIFs
 * A < B map comparison compares number of keys
 * JSON BIFs

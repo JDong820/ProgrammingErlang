@@ -1,5 +1,5 @@
-Chaper 4 Notes
-==============
+Modules and Functions
+=====================
 
 * `module declaration`
 * `export declaration`
@@ -38,8 +38,12 @@ Questions:
 ----------
 
 * Why can't I run `my_time_func(erlang:now)`?
+
 You can. The correct syntax `my_time_func(fun erlang:now/0)`
 * Erlang testing framework? What's the meta?
+
+I think you integrate testing into the makefile, which uses rebar, and reads
+from a tests directory.
 
 TODO:
 -----

@@ -1,5 +1,5 @@
-Chapter 9
-=========
+Types
+=====
 
 * `-spec`, `-type` annotations
 * `Type :: A | B | C`, can be recursive, `[]` for arrays

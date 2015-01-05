@@ -1,5 +1,5 @@
-Chapter 6
-=========
+Error Handling in Sequential Programs
+=====================================
 
 * "Let it crash": don't return when arguments are invalid
 * `exit`, `throw`, and `error`

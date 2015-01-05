@@ -1,5 +1,5 @@
-Chapter 12
-==========
+Concurrent Programming
+======================
 
 * Handling processes is very fast in general
 * `spawn`, `!`, and `receive ... end`

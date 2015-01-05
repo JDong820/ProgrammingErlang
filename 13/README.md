@@ -1,6 +1,5 @@
-Chapter 13
-==========
-
+Errors in Concurrent Programs
+=============================
 
 * "Let some other process fix the error.", "Let it crash."
 * `links`, `monitors`
@@ -16,5 +15,6 @@ Questions
 * How does statistics/1 work in concurrent Erlang?
 * How is debugging and testing done in concurrent Erlang?
 * What's the point of `references` (since we have `pid`s)?
+
 It's like the pid, except you can't send messages. It's a good abstraction for
 monitors.

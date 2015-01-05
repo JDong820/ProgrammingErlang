@@ -1,5 +1,5 @@
-Chapter 7
-=========
+Binary and the Bit Syntax
+=========================
 
 * `<<Data, Data>>` where `0 <= Data <= 255`
 * binary BIFs
@@ -28,4 +28,3 @@ Questions
 `Type` into higher level data (ints, floats, etc.). `Unit` is actually
 quite useful for when you know the size of the data.
 [Stack Overflow](http://stackoverflow.com/a/11865643/2534876) has an example.
-
